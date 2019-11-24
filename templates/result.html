@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+
+{% csrf_token %} 
+
+<!-- Container (result Section) -->
+
+        <div class="text-center">
+          <h2>Web App Case Study </h2>
+          <h4> Lifecheq take home assignment</h4>
+        </div>
+        <div class="row slideanim">
+           <div class="col-lg-3">
+            </div>
+          <div class="col-lg-6">
+            <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                
+                <h1>Your R{{Loanamount}} mortgage with R {{Deposit}} deposit, {{Interest}} % Interest and {{Loanterm}} years loan term</h1>
+  
+              </div>
+              <div class="panel-body">
+                <p>Monthly Repayment:  R {{MonthlyRepayment}}</p>
+                <p>Total Once-off Costs:  R {{TotalOnceoffCosts}}</p>
+                <p>Minimum Gross Monthly Income Required:  R {{MinimumGrossMonthlyIncomeRequired}}</p>
+                
+              </div>
+              <div class="panel-footer">
+                <h4> Total Interest  </h4>
+                <h3> R {{TotalInterest}} </h3>
+
+
+
+
+                {% if user.is_authenticated %} 
+
+                <form method="get" action="charts/getdata">
+                    <button class="btn btn-lg" input type="submit"> Detailed Report </button>
+                </form>
+               
+            
+                {% else %}
+                <form method="get" action="backtoregester">
+                    <button class="btn btn-lg" input type="submit"> Register for detailed report </button>
+                </form>
+                {% endif %}
+          
+                
+
+              </div>
+            </div>      
+          </div>   
+            
+         <div class="col-lg-6">
+            </div> 
+            
+        </div>
+      
+        {% if user.is_authenticated %} 
+        <div class="row slideanim">
+           <div class="col-lg-3">
+            </div>
+          <div class="col-lg-6">
+            <div class="panel panel-default text-center">
+                <a href="/get">
+              <div class="panel-heading">
+              
+                  Your Past Calculations
+              
+                
+  
+              
+              
+            </div> </a>     
+          </div>   
+            
+         <div class="col-lg-6">
+            </div> 
+            
+        </div>
+        {% endif %}
+
+
+{% endblock %}

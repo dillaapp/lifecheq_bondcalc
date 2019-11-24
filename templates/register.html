@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<form action="/accounts/register" method="post">
+    {% csrf_token%}
+
+    <!-- Container (registeration Section) -->
+
+    <div class="text-center">
+      <h2>Web App Case Study </h2>
+      <h4> Lifecheq take home assignment</h4>
+    </div>
+    <div class="row slideanim">
+       <div class="col-lg-3">
+        </div>
+      <div class="col-lg-6">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Registration Form</h1>
+          </div>
+          <div class="panel-body">
+            <input type="text"  name="first_name" placeholder="First Name"><br>
+            <input type="text"  name="last_name" placeholder="Last Name"><br>
+            <input type="text"  name="username" placeholder="Username"><br>
+            <input type="email"  name="email" placeholder="Email"><br>
+            <input type="password"  name="password1" placeholder="Password"><br>
+            <input type="password"  name="password2" placeholder="Confirm password"><br>
+            
+          </div>
+          <div class="panel-footer">
+            
+
+           
+            <button class="btn btn-lg" input type="submit"> Submit </button>
+            
+
+          </div>
+        </div>      
+      </div>   
+        
+     <div class="col-lg-6">
+        </div> 
+     </div>    
+    
+
+
+    
+    
+
+
+
+
+</form>
+
+
+
+
+
+
+
+{% endblock %}
